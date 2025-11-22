@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Gallery & Slideshow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 20px;
+      background: #f5f5f5;
+    }
+
+    h2 {
+      margin: 20px 0 10px;
+    }
+
+    /* ===== 1. Image Gallery (Click to Enlarge) ===== */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+      max-width: 800px;
+      margin-bottom: 40px;
+    }
+
+    .gallery img {
+      width: 100%;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: transform 0.3s ease;
+    }
+
+    /* Enlarge image when clicked */
+    .gallery img:active {
+      transform: scale(2);
+      z-index: 10;
+    }
+
+    /* ===== 2. Slideshow (Auto Transition using CSS) ===== */
+
+    .slideshow {
+      max-width: 600px;
+      height: 300px;
+      margin: auto;
+      overflow: hidden;
+      position: relative;
+      border-radius: 10px;
+      border: 4px solid white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 9s infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    /* Animation */
+    @keyframes slide {
+      0%   { transform: translateX(0%); }
+      33%  { transform: translateX(0%); }
+
+      38%  { transform: translateX(-100%); }
+      66%  { transform: translateX(-100%); }
+
+      71%  { transform: translateX(-200%); }
+      100% { transform: translateX(-200%); }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ===== Image Gallery ===== -->
+  <h2>Image Gallery (Click to Enlarge)</h2>
+  <div class="gallery">
+    <img src="https://picsum.photos/300/200?random=1" alt="Image 1">
+    <img src="https://picsum.photos/300/200?random=2" alt="Image 2">
+    <img src="https://picsum.photos/300/200?random=3" alt="Image 3">
+    <img src="https://picsum.photos/300/200?random=4" alt="Image 4">
+  </div>
+
+  <!-- ===== Slideshow ===== -->
+  <h2>Automatic Image Slideshow</h2>
+  <div class="slideshow">
+    <div class="slides">
+      <img src="https://picsum.photos/800/300?random=5" alt="Slide 1">
+      <img src="https://picsum.photos/800/300?random=6" alt="Slide 2">
+      <img src="https://picsum.photos/800/300?random=7" alt="Slide 3">
+    </div>
+  </div>
+
+</body>
+</html>
